@@ -1,0 +1,27 @@
+import pyupbit
+
+print(pyupbit.Upbit)
+
+print(pyupbit.get_tickers(fiat = "KRW")) ## KRW 페어의 토큰들 전부 출력
+
+print(pyupbit.get_current_price(["KRW-SOL","KRW-ETH","KRW-BTC"])) ## SOL,ETH,BTC의 원화 현재가격 출력
+
+print(pyupbit.get_ohlcv(ticker="KRW-BTC")) ## KRW-BTC 의 과거 내역 출력
+
+# get_ohlcv(ticker='KRW-BTC', interval='day', count=200, to=None, period=0.1) -> Union[DataFrame, None]
+#
+# 매개변수로 ticker, interval, count, to, period가 존재하며, 반환값으로 Union[DataFrame, None]을 갖는다.
+#
+# interval 변수는 조회 단위를 나타낸다.분(1 / 3 / 5 / 10 / 15 / 30 / 60 / 240), 일, 주, 월별
+# 데이터를 구할 수 있으며 인자로 넘길 땐 다음과 같다.
+#
+# [day / minute1 / minute3 / minute5 / minute10 / minute15 / minute30 / minute60 / minute240 / week / month]
+
+
+access = ""
+secret = ""
+
+upbit = pyupbit.Upbit(access,secret)
+
+print(upbit.get_balance("TRX"))  #내 자산에서 TRX 불러오기
+print(upbit.get_balance("SOL"))  #내 자산에서 SOL 불러오기
